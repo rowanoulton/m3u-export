@@ -1,7 +1,33 @@
 {
-  "dependencies": {
-    "line-by-line": "~0.1.1",
-    "minimist": "~0.2.0",
-    "exec": "~0.1.2"
-  }
+    "name": "m3u-export",
+    "description": "Make local itunes-exported playlists easily shareable",
+    "version": "0.0.1",
+    "homepage": "https://github.com/rowanoulton/m3u-export",
+    "author": {
+        "name": "Rowan Oulton"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:rowanoulton/m3u-export.git"
+    },
+    "bugs": {
+        "url": "https://github.com/rowanoulton/m3u-export/issues"
+    },
+    "license": {
+        "type": "MIT",
+        "url": "https://github.com/rowanoulton/m3u-export/blob/master/LICENSE"
+    },
+    "main": "lib/m3u-export",
+    "engines": {
+        "node": "0.10"
+    },
+    "dependencies": {
+        "line-by-line": "~0.1.1",
+        "minimist": "~0.2.0",
+        "exec": "~0.1.2"
+    },
+    "preferGlobal": "true",
+    "bin": {
+        "m3u-export": "bin/m3u-export.js"
+    }
 }
