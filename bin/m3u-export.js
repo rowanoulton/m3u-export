@@ -44,7 +44,7 @@ filenames.forEach(function (filename) {
   reader.on('end', function () {
     // Write a file to the local directory — this may not be the same directory as the original m3u, but it will be
     // where the music files have been copied to, so they need to be in the same place for the new m3u to work
-    fs.writeFileSync(path.basename(filename), lines.join('\r'));
+    fs.writeFileSync(path.basename(filename), lines.join('\n') + '\n');
     console.log('Exported ' + filename);
   });
 });
