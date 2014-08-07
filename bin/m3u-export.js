@@ -4,9 +4,9 @@ var LineReader = require('line-by-line'),
     minimist   = require('minimist'),
     exec       = require('exec'),
     path       = require('path'),
-    fs         = require('fs');
-
-var filenames = minimist(process.argv.slice(2))._;
+    fs         = require('fs'),
+    // Get all the arguments that don't have an option associated with them
+    filenames  = minimist(process.argv.slice(2))._;
 
 filenames.forEach(function (filename) {
   if (!fs.existsSync(filename)) {
@@ -25,23 +25,26 @@ filenames.forEach(function (filename) {
     var outputLine = line;
 
     // Not EXIF data
+    // @todo Is this *really* going to do?
     if (line.indexOf('#') !== 0) {
-      var filename = path.basename(line);
+      var musicFilename = path.basename(line);
 
       // @todo Properly escape spaces
-      exec('cp "' + line + '" "./' + filename + '"', function (err, out, code) {
+      exec('cp "' + line + '" "./' + musicFilename + '"', function (err, out, code) {
         if (err) throw err;
       });
 
       // Update line with new path [same directory]
-      outputLine = filename;
+      outputLine = musicFilename;
     }
 
     lines.push(outputLine);
   });
 
   reader.on('end', function () {
-    fs.writeFileSync(filename, lines.join('\r'));
+    // Write a file to the local directory — this may not be the same directory as the original m3u, but it will be
+    // where the music files have been copied to, so they need to be in the same place for the new m3u to work
+    fs.writeFileSync(path.basename(filename), lines.join('\r'));
     console.log('Exported ' + filename);
   });
 });
