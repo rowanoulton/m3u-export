@@ -7,7 +7,7 @@ If you've ever tried to export a playlist from iTunes to share it with someone t
 
 ![](http://i.imgur.com/5eSeHpU.jpg)
 
-The playlist is tied to your filesystem. This sucks, and manually extracting the mp3s and editing the m3u can be painful.
+The playlist is tied to your filesystem. This sucks, manually extracting the mp3s and editing the m3u can be painful.
 
 This module provides a commandline tool to quickly copy the music files into your local directory and remove the references to your local filesystem from the .m3u file as well.
 
