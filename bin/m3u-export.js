@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 var LineReader = require('line-by-line'),
+    escape     = require('shell-escape'),
     minimist   = require('minimist'),
     exec       = require('exec'),
     path       = require('path'),
@@ -27,10 +28,16 @@ filenames.forEach(function (filename) {
     // Not EXIF data
     // @todo Is this *really* going to do?
     if (line.indexOf('#') !== 0) {
-      var musicFilename = path.basename(line);
+      var musicFilename = path.basename(line),
+          args;
 
-      // @todo Properly escape spaces
-      exec('cp "' + line + '" "./' + musicFilename + '"', function (err, out, code) {
+      args = [
+        'cp',
+        line,
+        './' + musicFilename
+      ];
+
+      exec(escape(args), function (err, out, code) {
         if (err) throw err;
       });
 

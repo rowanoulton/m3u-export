@@ -1,10 +1,11 @@
 {
     "name": "m3u-export",
     "description": "Make local itunes-exported playlists easily shareable",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "homepage": "https://github.com/rowanoulton/m3u-export",
     "author": {
-        "name": "Rowan Oulton"
+        "name": "Rowan Oulton",
+        "email": "rowan.oulton@gmail.com"
     },
     "repository": {
         "type": "git",
@@ -24,7 +25,8 @@
     "dependencies": {
         "line-by-line": "~0.1.1",
         "minimist": "~0.2.0",
-        "exec": "~0.1.2"
+        "exec": "~0.1.2",
+        "shell-escape": "~0.1.0"
     },
     "preferGlobal": "true",
     "bin": {
