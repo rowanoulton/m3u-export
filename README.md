@@ -22,7 +22,7 @@ npm install -g m3u-export
 Then run it against your playlist:
 
 ```
-m3u-export your-favorite-playlist.m3u
+m3u-export your-favourite-playlist.m3u
 ```
 
 The original file will be overwritten with the pruned version, and the local directory will have the mp3s copied into it, allowing you to quickly compress and share your playlists.
