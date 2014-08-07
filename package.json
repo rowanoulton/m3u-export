@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "line-by-line": "~0.1.1",
+    "minimist": "~0.2.0",
+    "exec": "~0.1.2"
+  }
+}
